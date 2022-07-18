@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Friends List</h1>
+<br/>
+<div id="friends">
+  <table class="table">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">CGPA</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+    <tr>
+      <td><%= friend.first_name %></td>
+      <td><%= friend.last_name %></td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone %></td>
+      <td><%= friend.cgpa %></td>
+      <td><%= link_to "Show", friend_path(friend) %></td>
+      <td><%= link_to "Edit", edit_friend_path(friend) %></td>
+      <td><%= button_to "Destroy", friend, method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
